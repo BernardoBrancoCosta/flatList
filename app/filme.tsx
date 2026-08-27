@@ -6,8 +6,9 @@ export default function HomeScreen() {
     <View style={styles.parent}>
         <View style={styles.window}>
             <View style={styles.header}>
+              <img src="" alt="" style={styles.imagem}/>
                 <View style={styles.title}>
-                  Título
+                  titulo
                 </View>
             </View>
             <View style={styles.body}>

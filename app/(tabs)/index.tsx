@@ -1,4 +1,6 @@
 import {View, StyleSheet, FlatList} from 'react-native';
+import {Link} from 'expo-router';
+import { Assets } from '@react-navigation/elements';
 
 const categorias = [
   {
@@ -67,7 +69,7 @@ export default function App() {
 function renderCategoria({item}:{item:any}){
   return(
     <View style={styles.categorias}>
-      {item.titulo}:
+      {item.titulo}
         <FlatList style={styles.row}
         data={item.filmes}
         keyExtractor={item => item.id}
@@ -79,11 +81,21 @@ function renderCategoria({item}:{item:any}){
 
 function renderFilmes({item}:{item:any}){
   return(
-    <View style={[styles.filmes, {backgroundColor:item.cor}]}>
-        {item.titulo}
+    <View style={[styles.margem]}>
+      <Link rel="stylesheet" href="/filme">
+        <View style={[styles.filme, {backgroundColor:item.cor}]}>
+            {item.titulo}
+        </View>
+      </Link>
     </View>
   )
 }
+
+/*
+  <Link rel="stylesheet" href="/filme" style={[styles.titulo]}>
+    {item.titulo}
+  </Link>
+*/
 
 const styles = StyleSheet.create({
   body:{
@@ -91,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#000000',
     fontFamily: 'helvetica',
+
   },
   categorias:{
     flexDirection: 'column',
@@ -106,21 +119,30 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#ffffff00',
-    overflow: 'scroll',
+    overflowX: 'scroll',
     },
-  filmes:{
+  margem:{
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 300,
+    width: 300,
+    margin: 15,
+  },
+  filme: {
     textAlign: 'center',
     fontWeight: 'bold',
-    backgroundColor: '#ff9696',
     color: '#ffdfdf',
     borderColor: '#8b3939',
     borderRadius: 10,
     borderWidth: 2,
     fontSize: 20,
-    height: 300,
-    width: 300,
-    margin: 15,
+    height: 275,
+    width: 275,
+  },
+  titulo:{
+    alignSelf: 'center',
+    color: '#ffffff',
+    fontSize: 20,
   }
 });
