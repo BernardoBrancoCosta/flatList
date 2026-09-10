@@ -13,7 +13,7 @@ export default function App() {
         <FlatList
         data={categorias}
         keyExtractor={item => item.id}
-        renderItem={CardCategorias}
+        renderItem={renderCategoria}
         />
     </View>
    );

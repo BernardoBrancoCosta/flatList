@@ -1,12 +1,13 @@
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList, TouchableOpacity, Modal} from 'react-native';
 import {Link} from 'expo-router';
+//import { useState } from 'react';
 
 
 export default function CardCategorias({item}:{item:any}) {
   return(
     <View style={styles.categorias}>
       {item.titulo}
-        <FlatList style={styles.row}
+        <FlatList horizontal
         data={item.filmes}
         keyExtractor={item => item.id}
         renderItem={renderFilmes}
@@ -16,11 +17,14 @@ export default function CardCategorias({item}:{item:any}) {
 }
 
 function renderFilmes({item}:{item:any}){
+  //const [sobre] = useState(false);
   return(
     <View style={[styles.margem]}>
-        <View style={[styles.filme, {backgroundColor:item.cor}]}>
-            {item.titulo}
-        </View>
+        <Link href={{pathname: '/components/filme/[id]', params: {id: item.id, titulo: item.titulo}}} style={[styles.link]}>
+          <View style={[styles.filme, {backgroundColor:item.cor}]}>
+
+          </View>
+        </Link>
     </View>
   )
 }
@@ -43,12 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 10,
   },
-  row:{
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#ffffff00',
-    overflowX: 'scroll',
-    },
   margem:{
     flexDirection: 'column',
     justifyContent: 'center',
@@ -67,5 +65,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     height: 275,
     width: 275,
+  },
+  link: {
+    textAlign: 'center',
   }
 })

@@ -1,28 +1,37 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useLocalSearchParams } from "expo-router";
+import { useRouter } from "expo-router";
+//import DadosDosFilmes from "../DadosDosFilmes";
+
 
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const {id, titulo} = useLocalSearchParams();
+
+  //const categorias = DadosDosFilmes();
+  //const filmeEncontrado = categorias
+  //.flatmap((categoria)) => categoria
+
   return (
     <View style={styles.parent}>
         <View style={styles.window}>
             <View style={styles.header}>
               <img src="" alt="" style={styles.imagem}/>
                 <View style={styles.title}>
-                  titulo
+                  {titulo}
                 </View>
             </View>
             <View style={styles.body}>
-                <View style={styles.options}>
-                  <View style={styles.option}>1</View>
-                  <View style={styles.option}>2</View>
-                  <View style={styles.watch}>play.png</View>
-                  <View style={styles.option}>4</View>
-                  <View style={styles.option}>5</View>
-                </View>
-                <View style={styles.watchSelection}>
-                  <View style={styles.seasons}></View>
-                  <View style={styles.episodes}></View>
-                </View>
+              <View style={styles.options}>
+                <View style={styles.option}>1</View>
+                <View style={styles.watch}>...</View>
+                <View style={styles.option}>2</View>
+              </View>
+              <View style={styles.watchSelection}>
+                <View style={styles.seasons}></View>
+                <View style={styles.episodes}></View>
+              </View>
             </View>
             <View style={styles.footer}>
 
