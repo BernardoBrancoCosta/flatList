@@ -1,15 +1,14 @@
-import { StyleSheet } from 'react-native';
 import { useState } from 'react';
-import { View, Text, Switch } from 'react-native';
+import { StyleSheet, ScrollView, View, Pressable, Text, Switch } from 'react-native';
 
 export default function App() {
-  const [ativo, setAtivo] = useState(false);
+  const [ativo, setAtivo] = useState(true);
 
   return (
-    <View style={[styles.body, {backgroundColor: ativo ? '#fff' : '#aaa',}]}>
+    <View style={[styles.body, {backgroundColor: ativo? '#222':'#fff'}]}>
       <View style={styles.parent}>
-        <View style={styles.child1}>
-          <Text style={{ color: '#000', fontSize: 16 }}>Modo Escuro</Text>
+        <View style={[styles.settingsArea, {backgroundColor: ativo? '#333':'#ccc'}]}>
+          <Text>Modo escuro: </Text>
           <Switch
             value={ativo}
             onValueChange={setAtivo}
@@ -17,19 +16,12 @@ export default function App() {
               false: '#334155',
               true: '#F97316',
             }}
-            thumbColor={ativo ? '#fff' : '#94A3B8'}
+            thumbColor={ativo ? '#ffffff' : '#94A3B8'}
           />
-          <Text>{ativo ? 'Ligado' : 'Desligado'}</Text>
+          <Text>{ativo ? 'Ligado':'Desligado'}</Text>
         </View>
-        <View style={styles.child2}>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
-          <View style={styles.elem}><View style={styles.content}>...</View></View>
+        <View style={[styles.contentArea, {backgroundColor: ativo? '#444':'#aaa'}]}>
+          <Pressable style={({hovered, pressed})=>[styles.]}></Pressable>
         </View>
       </View>
     </View>
@@ -37,42 +29,28 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    body: {
+    body:{
         flex: 1,
     },
-    parent: {
+    parent:{
         flex: 1,
-        backgroundColor: '#00000000',
         margin: 15
     },
-    child1: {
+    settingsArea:{
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
-      backgroundColor: '#ccc',
-      gap: 5
-    },
-    child2: {
-      flex: 1,
-      backgroundColor: '#bbb',
-      flexDirection: 'row',
-      overflowX: 'auto',
-      fontFamily: 'Verdana',
-    },
-    elem: {
-      width: 150,
-      height: 150,
-      backgroundColor: '#bbbbbb00',
+      gap: 10,
       justifyContent: 'center',
       alignItems: 'center',
+      padding: 5,
+      margin: 5,
+      borderRadius: 10
     },
-    content: {
-      width: 125,
-      height: 125,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#aaa',
-      borderRadius: 15
+    contentArea:{
+      flex: 5,
+      padding: 5,
+      margin: 5,
+      borderRadius: 10
     }
 })
 
