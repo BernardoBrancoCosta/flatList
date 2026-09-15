@@ -30,13 +30,6 @@ function renderFilmes({item}:{item:any}){
 }
 
 const styles = StyleSheet.create({
-    body:{
-    flex: 1,
-    justifyContent: 'space-around',
-    backgroundColor: '#000000',
-    fontFamily: 'helvetica',
-
-  },
   categorias:{
     flexDirection: 'column',
     backgroundColor: '#1b1515',
