@@ -21,7 +21,20 @@ export default function App() {
           <Text>{ativo ? 'Ligado':'Desligado'}</Text>
         </View>
         <View style={[styles.contentArea, {backgroundColor: ativo? '#444':'#aaa'}]}>
-          <Pressable style={({hovered, pressed})=>[styles.]}></Pressable>
+          <Pressable style={({hovered})=>[styles.content, hovered && styles.contentHovered]}>
+            <ScrollView horizontal style={styles.scrollArea}>
+              <View style={styles.item}><Text>I</Text></View>
+              <View style={styles.item}><Text>II</Text></View>
+              <View style={styles.item}><Text>III</Text></View>
+            </ScrollView>
+          </Pressable>
+          <Pressable style={({hovered})=>[styles.content, hovered && styles.contentHovered]}>
+            <ScrollView horizontal style={styles.scrollArea} contentContainerStyle={[{justifyContent: 'space-around'}]}>
+              <View style={styles.item}><Text>I</Text></View>
+              <View style={styles.item}><Text>II</Text></View>
+              <View style={styles.item}><Text>III</Text></View>
+            </ScrollView>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -38,7 +51,6 @@ const styles = StyleSheet.create({
     },
     settingsArea:{
       flex: 1,
-      flexDirection: 'row',
       gap: 10,
       justifyContent: 'center',
       alignItems: 'center',
@@ -48,9 +60,38 @@ const styles = StyleSheet.create({
     },
     contentArea:{
       flex: 5,
+      justifyContent: 'center',
+      alignItems: 'flex-start',
       padding: 5,
       margin: 5,
+      borderRadius: 15,
+    },
+    content:{
+      flex: 2,
+      backgroundColor: '#666',
+      borderRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 5,
+    },
+    contentHovered:{
+      padding: 1,
+      flex: 3
+    },
+    scrollArea:{
+      backgroundColor: '#c41f1f88',
+      margin: 5,
       borderRadius: 10
+    },
+    item:{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 50,
+      height: 50,
+      borderRadius: 5,
+      margin: 5,
+      backgroundColor: '#444'
     }
 })
 
