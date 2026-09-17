@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Text, Platform } from "react-native";
+import { Text, Platform, TextInput } from "react-native";
+import { Background } from "@react-navigation/elements";
 
 export default function TabLayout() {
   return (
@@ -13,6 +14,7 @@ export default function TabLayout() {
           shadowOpacity: 0,
           borderBottomWidth: 1,
           borderBottomColor: "#8b0707",
+          borderRadius: 15
         },
         headerTitleStyle: {
           fontWeight: "700",
@@ -32,12 +34,6 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: "500",
-        },
-        headerRightContainerStyle: {
-          backgroundColor: "#ffffff"
-        },
-        headerLeftContainerStyle: {
-          backgroundColor: "#ffffff"
         }
       }}
     >
@@ -49,6 +45,22 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? "home" : "home-outline"}
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      >
+        
+      </Tabs.Screen>
+
+      <Tabs.Screen
+        name="test"
+        options={{
+          title: "Área de testes",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "search" : "search-outline"}
               size={24}
               color={color}
             />
@@ -148,6 +160,8 @@ export default function TabLayout() {
           ),
         }}
       />
+      
+      
     </Tabs>
   );
 }
