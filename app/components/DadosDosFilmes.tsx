@@ -48,10 +48,22 @@ export default function DadosDosFilmes() {
         { id: "5b", titulo: "Midsommar", cor: "#190a05" },
         { id: "5c", titulo: "Get Out", cor: "#0a0a0a" },
         ]
-    }
+    },
+    {
+        id: "5",
+        titulo: "Novidades",
+        filmes: [
+        { id: "5a", titulo: "...", cor: "#221f1f" },
+        { id: "5b", titulo: "...", cor: "#172525" },
+        { id: "5c", titulo: "...", cor: "#2b193a" },
+        { id: "5d", titulo: "...", cor: "#2b193a" },
+        ]
+    },
     ];
 
     return  (
         categorias
     );
 }
+
+/**/

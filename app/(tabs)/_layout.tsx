@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Platform } from "react-native";
+import { Text, Platform } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -8,23 +8,23 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: true,
         headerStyle: {
-          backgroundColor: "#6e0505ff",
+          backgroundColor: "#4d0505",
           elevation: 0,
           shadowOpacity: 0,
           borderBottomWidth: 1,
-          borderBottomColor: "#f0f0f0ff",
+          borderBottomColor: "#8b0707",
         },
         headerTitleStyle: {
           fontWeight: "700",
-          fontSize: 18,
+          fontSize: 28,
           color: "#ffffffff",
         },
-        tabBarActiveTintColor: "#007AFF",
-        tabBarInactiveTintColor: "#8E8E93",
+        tabBarActiveTintColor: "#aa0000",
+        tabBarInactiveTintColor: "#7a4a4a",
         tabBarStyle: {
-          backgroundColor: "#eff157ff",
+          backgroundColor: "#000000",
           borderTopWidth: 1,
-          borderTopColor: "#F0F0F0",
+          borderTopColor: "#8b0707",
           height: Platform.OS === "ios" ? 88 : 64,
           paddingBottom: Platform.OS === "ios" ? 30 : 80,
           paddingTop: 10,
@@ -33,12 +33,19 @@ export default function TabLayout() {
           fontSize: 12,
           fontWeight: "500",
         },
+        headerRightContainerStyle: {
+          backgroundColor: "#ffffff"
+        },
+        headerLeftContainerStyle: {
+          backgroundColor: "#ffffff"
+        }
       }}
     >
+      
       <Tabs.Screen
         name="index"
         options={{
-          title: "Início",
+          title: "Netflix",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? "home" : "home-outline"}
@@ -48,6 +55,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      
       <Tabs.Screen
         name="explore"
         options={{

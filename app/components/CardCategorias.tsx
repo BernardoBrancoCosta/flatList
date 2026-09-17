@@ -1,18 +1,19 @@
-import {View, StyleSheet, FlatList, TouchableOpacity, Modal} from 'react-native';
+import {ScrollView, View, StyleSheet, FlatList, TouchableOpacity, Modal} from 'react-native';
 import {Link} from 'expo-router';
 //import { useState } from 'react';
 
 
 export default function CardCategorias({item}:{item:any}) {
   return(
-    <View style={styles.categorias}>
+    <ScrollView style={styles.categorias}>
       {item.titulo}
         <FlatList horizontal
         data={item.filmes}
         keyExtractor={item => item.id}
         renderItem={renderFilmes}
+        scrollEnabled={true}
         />
-    </View>
+    </ScrollView>
   )
 }
 
@@ -22,7 +23,7 @@ function renderFilmes({item}:{item:any}){
     <View style={[styles.margem]}>
         <Link href={{pathname: '/components/filme/[id]', params: {id: item.id, titulo: item.titulo}}} style={[styles.link]}>
           <View style={[styles.filme, {backgroundColor:item.cor}]}>
-
+            {item.titulo}
           </View>
         </Link>
     </View>
@@ -31,7 +32,7 @@ function renderFilmes({item}:{item:any}){
 
 const styles = StyleSheet.create({
   categorias:{
-    flexDirection: 'column',
+    flex: 1,
     backgroundColor: '#1b1515',
     color: '#f55c5c',
     borderColor: '#8b2626',

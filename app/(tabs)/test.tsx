@@ -22,10 +22,13 @@ export default function App() {
         </View>
         <View style={[styles.contentArea, {backgroundColor: ativo? '#444':'#aaa'}]}>
           <Pressable style={({hovered})=>[styles.content, hovered && styles.contentHovered]}>
-            <ScrollView horizontal style={styles.scrollArea}>
+            <ScrollView horizontal style={styles.scrollArea} contentContainerStyle={[{justifyContent: 'space-around'}]}>
               <View style={styles.item}><Text>I</Text></View>
               <View style={styles.item}><Text>II</Text></View>
               <View style={styles.item}><Text>III</Text></View>
+              <View style={styles.item}><Text>IV</Text></View>
+              <View style={styles.item}><Text>V</Text></View>
+              <View style={styles.item}><Text>VI</Text></View>
             </ScrollView>
           </Pressable>
           <Pressable style={({hovered})=>[styles.content, hovered && styles.contentHovered]}>
@@ -65,13 +68,12 @@ const styles = StyleSheet.create({
       padding: 5,
       margin: 5,
       borderRadius: 15,
+      overflow: 'hidden'
     },
     content:{
       flex: 2,
       backgroundColor: '#666',
       borderRadius: 10,
-      justifyContent: 'center',
-      alignItems: 'center',
       margin: 5,
     },
     contentHovered:{
@@ -79,16 +81,13 @@ const styles = StyleSheet.create({
       flex: 3
     },
     scrollArea:{
-      backgroundColor: '#c41f1f88',
-      margin: 5,
-      borderRadius: 10
+      backgroundColor: '#00000000',
     },
     item:{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      width: 50,
-      height: 50,
+      width: 250,
       borderRadius: 5,
       margin: 5,
       backgroundColor: '#444'
